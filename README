@@ -1,0 +1,7 @@
+To reproduce the NoClassDefFound issue:
+
+java -jar jruby.jar --1.9 -I. bench_etl.rb
+
+To reproduce the crash:
+
+java -XX:MaxInlineSize=150 -XX:InlineSmallCode=3000 -Xbootclasspath/a:jruby.jar -Djruby.native.enabled=false org.jruby.Main -X+C --1.9 bench_etl.rb
